@@ -13,12 +13,14 @@ const company  = new mongoose.Schema({
         type:"String",
         required :true
     },
+   
     
 });
 export interface CompanyDoc extends mongoose.Document {
     name:String,
     email:String,
     password : String,
+   
   }
 
 export default mongoose.model<CompanyDoc>('Company', company);

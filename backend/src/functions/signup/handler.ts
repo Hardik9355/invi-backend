@@ -1,16 +1,25 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import connectDB from "src/config/db";
+import bcrypt from "bcryptjs";
 import User from "src/models/user";
 export const register:any =async (event) => {
+    console.log("hello");
     await connectDB();
-    try{const message =JSON.parse(event.body);
-    const createuser = new User({
-        username : message.username,
+    try{
+        
+        const message =JSON.parse(event.body);
+        const saltRounds = 10;
+        const password = message.password;
+        // bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+        const hashedPassword = await bcrypt.hash(password , saltRounds);
+        const createuser = new User({
         fname : message.fname,
         lname : message.lname,
         email : message.email,
-        password: message.password
+        password: hashedPassword
+      
     });
+    console.log("hello")
     const userdata = await createuser.save();
     console.log("Successful");
     return formatJSONResponse({message:userdata});
@@ -22,8 +31,3 @@ export const register:any =async (event) => {
 
     
 };
-
-export const hello:any = async (event) => {
-    const message = JSON.parse(event.body);
-    return formatJSONResponse({message:`Hello ${message.name}, welcome to the exciting Serverless world!`});
-  };

@@ -14,6 +14,8 @@
     "@middy/http-json-body-parser": "^3.4.0",
     "@types/password-hash": "^1.2.21",
     "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
     "mock-aws-s3": "^4.0.2",
     "mongoose": "^7.0.1",
     "nock": "^13.3.0",

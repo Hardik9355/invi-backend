@@ -10,15 +10,16 @@ export const Hello = {
   export const Register = {
     type: "object",
     properties: {
-        username: { type: 'string', unique : 'true' },
+       
         fname: { type: 'string'  },
         lname: { type: 'string' },
         email: { type: 'string' ,unique : 'true'},
         password : {type : 'string'},
+     
       
 
     },
-    required: ['username' , 'fname' , 'lname', 'email' , 'password']
+    required: ['fname' , 'lname', 'email' , 'password']
   } ;
   
   

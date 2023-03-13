@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 const User = new mongoose.Schema({
-    username:{
-        type: "String",
-        required : true,
-        unique : true 
-    },
+   
     fname:{
         type:"String",
         required : true
@@ -24,7 +20,6 @@ const User = new mongoose.Schema({
     }
 });
 export interface UserDoc extends mongoose.Document {
-    username:String,
     fname:String,
     lname : String,
     email:String,
