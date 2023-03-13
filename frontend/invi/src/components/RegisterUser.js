@@ -24,9 +24,9 @@ export default function RegisterUser(props) {
         setRegisterUser({...registerUser, [name]:value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        axios.post('/register',registerUser);
+        await axios.post('/dev/register',registerUser).then(res => console.log(res.data));
 
         const newRecord = {...registerUser, id: new Date().getTime().toString()}
         console.log(records);
@@ -34,6 +34,8 @@ export default function RegisterUser(props) {
         console.log(records);
 
         setRegisterUser({fname: "",lname: "",email: "",password: "",cpassword: ""})
+        alert("User created Successfully");
+        navigate("/login")
     }
 
 
@@ -79,7 +81,7 @@ export default function RegisterUser(props) {
                 <input type="radio" name="service" value={registerUser.value} id="both" className="text-sm mx-1" /><label htmlFor="both">Both</label>
             </div>
                 {/* <!-- Sign up / submit button --> */}
-                <button type="submit" onClick={() => navigate("/login")} id="signUp"
+                <button type="submit" id="signUp"
                     className="bg-blue-700 w-full h-10 cursor-pointer text-white rounded-md hover:bg-blue-600 hover:outline outline-2 outline-blue-600 outline-offset-2 text-sm" >Submit</button><br />
                 <p className="text-xs my-2">Already have a account? <a href="/login" className="text-blue-600">Login</a></p>
             </form>
