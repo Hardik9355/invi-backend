@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from '../axios';
 
 export default function RegisterUser(props) {
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ export default function RegisterUser(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post('/register',registerUser);
 
         const newRecord = {...registerUser, id: new Date().getTime().toString()}
         console.log(records);
