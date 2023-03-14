@@ -33,10 +33,13 @@ export const register:any =async (event) => {
     
 };
 export const login : any =async (event) => {
-    let tokens;
+    console.log("Hello");
     try{
+        let tokens;
         const message = JSON.parse(event.body);
+        console.log(message);
         let loginuser = await User.findOne({email : message.email});
+        console.log("Hey");
         bcrypt.compare(message.password , loginuser.password, function(error,result){
             if(result == true){
                 tokens = token.sign(
