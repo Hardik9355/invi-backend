@@ -25,8 +25,12 @@ export default function RegisterUser(props) {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        if(registerUser.password === registerUser.cpassword){
         await axios.post('/dev/register',registerUser).then(res => console.log(res.data));
-
+        }
+        else{
+            alert("Invalid input: " );
+        }
         const newRecord = {...registerUser, id: new Date().getTime().toString()}
         console.log(records);
         setRecords([...records, newRecord]);
