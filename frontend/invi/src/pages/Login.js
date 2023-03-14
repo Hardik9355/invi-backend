@@ -6,7 +6,7 @@ export default function Login(props) {
   const navigate = useNavigate();
 
   const [clientLogin,setClientLogin] = useState({
-    name: "",
+    email: "",
     password: ""
 
 });
@@ -30,7 +30,7 @@ const handleSubmit = async (e) => {
     setRecords([...records, newRecord]);
     console.log(records);
 
-    setClientLogin({name: "", password: ""})
+    setClientLogin({email: "", password: ""})
     alert("User login Successfully");
     navigate("/login/home")
 }
@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
               <h2 className='text-4xl text-white font-bold text-center'>Sign in</h2>
               <div className='flex flex-col text-gray-400 py-2'>
                 <label>Email Address</label>
-                <input className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' type="text" autoComplete='off' value={clientLogin.name} onChange={handleInput} name="name" required/>
+                <input className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' type="text" autoComplete='off' value={clientLogin.email} onChange={handleInput} name="email" required/>
               </div>
               <div className='flex flex-col text-gray-400 py-2'>
                 <label>Password</label>
@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
                 {/* <p>Forgot Password</p> */}
               </div>
               
-              <button type='submit' onClick={() => navigate("/login/home")} className='w-full my-5 py-2 bg-blue-500 hover:bg-blue-900  text-white font-semibold rounded-lg' >Sign In</button>
+              <button type='submit' className='w-full my-5 py-2 bg-blue-500 hover:bg-blue-900  text-white font-semibold rounded-lg' >Sign In</button>
 
             </form>
         </div>
