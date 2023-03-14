@@ -53,13 +53,13 @@ export default function ClientDetail() {
                         <label htmlFor="cname" className="text-sm">Company name*</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.CompanyName} onChange={handleInput} name="CompanyName" id="cname"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm require" />
+                            outline-blue-600 shadow-sm require" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="cNumber" className="w-1/2 mr-1 ">
                         <label  className="text-sm ">Country</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.Country} onChange={handleInput} name="Country" id="cNumber"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
             
@@ -70,13 +70,13 @@ export default function ClientDetail() {
                         <label htmlFor="fname" className="text-sm">First Name</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.fname} onChange={handleInput} name="fname" id="fname"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="lastName" className="w-1/2 mr-1 ">
                         <label htmlFor="lname" className="text-sm">Last Name</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.lname} onChange={handleInput} name="lname" id="lname"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
               {/* block five */}
@@ -86,13 +86,13 @@ export default function ClientDetail() {
                         <label htmlFor="Country" className="text-sm">Email address*</label><br />
                         <input type="email" autoComplete='off' value={clientRegister.email} onChange={handleInput} name="email" id="Country"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="numbr" className="w-1/2 mr-1 ">
                         <label htmlFor="PNumber" className="text-sm">Phone number</label><br />
                         <input type="number" autoComplete='off' value={clientRegister.PNumber} onChange={handleInput} name="PNumber" id="PNumber"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
 
@@ -103,13 +103,13 @@ export default function ClientDetail() {
                         <label htmlFor="address1" className="text-sm">Address line 1</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.addres1} onChange={handleInput} name="addres1" id="address1"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="add2" className="w-1/2 mr-1 ">
                         <label htmlFor="address2" className="text-sm">Address line 2</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.addres2} onChange={handleInput} name="addres2" id="address2"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
 
@@ -120,13 +120,13 @@ export default function ClientDetail() {
                         <label htmlFor="postal" className="text-sm">Postal PostalCode</label><br />
                         <input type="number" autoComplete='off' value={clientRegister.PostalCode} onChange={handleInput} name="PostalCode" id="postal"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="City" className="w-1/2 mr-1 ">
                         <label htmlFor="Cityname" className="text-sm">City</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.City} onChange={handleInput} name="City" id="Cityname"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
 
@@ -137,14 +137,14 @@ export default function ClientDetail() {
                     <div id="site" className="w-1/2 mr-1 ">
                         <label htmlFor="Websitesite" className="text-sm">Website</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.Website} onChange={handleInput} name="Website" id="website"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- first name --> */}
                     <div id="mail" className="w-1/2 mr-1 ">
                         <label htmlFor="mailEmail" className="text-sm">Invoice Currency</label><br />
                         <input type="text" autoComplete='off' value={clientRegister.InvoiceCurrency} onChange={handleInput} name="InvoiceCurrency" id="mailEmail"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
 

@@ -31,6 +31,8 @@ const handleSubmit = async (e) => {
     console.log(records);
 
     setClientLogin({name: "", password: ""})
+    alert("User login Successfully");
+    navigate("/login/home")
 }
 
 
