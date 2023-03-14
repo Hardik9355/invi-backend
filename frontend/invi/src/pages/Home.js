@@ -12,7 +12,7 @@ export default function Home(props) {
         </div>
 
         <div className='flex h-4/5 w-4-5 justify-center items-center '>
-        <button onClick={() => navigate("/signup")} className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-white-500 hover:bg-transparent hover:text-white-500 transition-all duration-300 m-1'>Register Account</button>
+        <button onClick={() => navigate("/signup/person")} className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-white-500 hover:bg-transparent hover:text-white-500 transition-all duration-300 m-1'>Register Account</button>
         <button onClick={() => navigate("/login")} className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-white-500 hover:bg-transparent hover:text-white-500 transition-all duration-300 m-1'>Already a user</button>
         </div>
     </div>
