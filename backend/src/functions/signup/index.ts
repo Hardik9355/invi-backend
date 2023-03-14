@@ -35,4 +35,15 @@ register:{
     },
   ],
 },
+loginuser: {
+  handler : `${handlerPath(__dirname)}/handler.login`,
+  events : [
+    {
+      http:{
+        method : 'post',
+        path : 'login',
+      }
+    }
+  ]
+}
 };

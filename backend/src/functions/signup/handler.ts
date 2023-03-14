@@ -1,6 +1,7 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import connectDB from "src/config/db";
 import bcrypt from "bcryptjs";
+import token from "jsonwebtoken";
 import User from "src/models/user";
 export const register:any =async (event) => {
     console.log("hello");
@@ -31,3 +32,27 @@ export const register:any =async (event) => {
 
     
 };
+export const login : any =async (event) => {
+    let tokens;
+    try{
+        const message = JSON.parse(event.body);
+        let loginuser = await User.findOne({email : message.email});
+        bcrypt.compare(message.password , loginuser.password, function(error,result){
+            if(result == true){
+                tokens = token.sign(
+                    {email: loginuser.email , id: loginuser._id},
+                        process.env.SECRETKEY
+                        
+                );
+                console.log("successfully login");
+                    }
+                    else{
+                        console.log("login unsuccessful");
+                    }
+
+    });
+            }
+            catch(error){
+                console.log("invalid details");
+            }
+        };
