@@ -1,49 +1,33 @@
-import {Hello , Register} from './schema';
+import { Register } from './schema';
 
 import { handlerPath } from '@libs/handler-resolver';
 
-export const functions ={
-  hello:{
-    handler: `${handlerPath(__dirname)}/handler.hello`,
-    events: [
-    {
-      http: {
-        method: 'post',
-        path: 'hello',
-        request: {
-          schemas: {
-            'application/json': Hello,
-          },
-        },
-      },
-    },
-  ],
-},
-register:{
+export const functions = {
+  register: {
     handler: `${handlerPath(__dirname)}/handler.register`,
     events: [
-    {
-      http: {
-        method: 'post',
-        path: 'register',
-        request: {
-          schemas: {
-            'application/json': Register,
+      {
+        http: {
+          method: 'post',
+          path: 'register',
+          request: {
+            schemas: {
+              'application/json': Register,
+            },
           },
         },
       },
-    },
-  ],
-},
-loginuser: {
-  handler : `${handlerPath(__dirname)}/handler.login`,
-  events : [
-    {
-      http:{
-        method : 'post',
-        path : 'login',
+    ],
+  },
+  loginuser: {
+    handler: `${handlerPath(__dirname)}/handler.login`,
+    events: [
+      {
+        http: {
+          method: 'post',
+          path: 'login',
+        }
       }
-    }
-  ]
-}
+    ]
+  }
 };
