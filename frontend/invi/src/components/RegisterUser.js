@@ -11,7 +11,6 @@ export default function RegisterUser(props) {
         email: "",
         password: "",
         cpassword: ""
-// csancxalcskcnsxcsknxcksxnscjbacaschbaskchbaschkajsbchsaxcbashcab
     });
 
     const [records,setRecords] = useState([]);
@@ -51,32 +50,32 @@ export default function RegisterUser(props) {
                         <label htmlFor="fname" className="text-sm">First Name</label><br />
                         <input type="text" autoComplete='off' value={registerUser.fname} onChange={handleInput} name="fname" id="fname"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
-                            outline-blue-600 shadow-sm" />
+                            outline-blue-600 shadow-sm" required/>
                     </div>
                     {/* <!-- last name --> */}
                     <div id="lastName" className="w-1/2 mr-1 ">
                         <label htmlFor="lname" className="text-sm">Last Name</label><br />
                         <input type="text" autoComplete='off' value={registerUser.lname} onChange={handleInput} name="lname" id="lname"
-                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                            className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                     </div>
               </div>
 
                 {/* <!-- email --> */}
                 <label htmlFor="email" className="text-sm ">Email</label><br />
                 <input type="email" autoComplete='off' value={registerUser.email} onChange={handleInput} name="email" id="email"
-                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                 {/* <!-- password --> */}
                 <label htmlFor="password" className="text-sm">Password</label><br />
                 <input type="password" autoComplete='off' value={registerUser.password} onChange={handleInput} name="password" id="password"
-                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                 {/* <!-- confirm password --> */}
                 <label htmlFor="confirmPassword" className="text-sm">Confirm Password</label><br />
                 <input type="password" autoComplete='off' value={registerUser.cpassword} onChange={handleInput} name="cpassword" id="confirmPassword"
-                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
+                    className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" required/>
                 {/* <!-- radio buttons for gender --> */}
                 <div id="gender" className="text-sm mb-4 mt-4">
                 <p className="mt-2">Mode of service</p>
-                <input type="radio" name="service" value={registerUser.value} id="online" className="text-sm mx-1"  /><label htmlFor="online">Online</label>
+                <input type="radio" name="service" value={registerUser.value} id="online" className="text-sm mx-1"  checked/><label htmlFor="online">Online</label>
                 <input type="radio" name="service" value={registerUser.value} id="offline" className="text-sm mx-1" /><label htmlFor="offline">Offline</label>
                 <input type="radio" name="service" value={registerUser.value} id="both" className="text-sm mx-1" /><label htmlFor="both">Both</label>
             </div>
