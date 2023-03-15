@@ -34,7 +34,7 @@ export default function RegisterUser(props) {
 
         setRegisterUser({fname: "",lname: "",email: "",password: "",cpassword: ""})
         alert("User created Successfully");
-        navigate("/login")
+        navigate("/login/home")
         }
         else{
             alert("Invalid input: " );

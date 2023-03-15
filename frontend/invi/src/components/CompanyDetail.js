@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import axios from '../axios';
 
 export default function CompanyDetail(props) {
     const navigate = useNavigate();
@@ -33,6 +34,7 @@ export default function CompanyDetail(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post('/dev/addcompanydata',companyRegister).then(res => console.log(res.data));
 
         const newRecord = {...companyRegister, id: new Date().getTime().toString()}
         console.log(records);
@@ -40,6 +42,8 @@ export default function CompanyDetail(props) {
         console.log(records);
 
         setCompanyRegister({CompanyName: "",taxregister:"",taxnumber:"",fname: "",lname: "",addres1: "",addres2: "",PostalCode: "",City: "",Country: "",PNumber: "",Email: "",Website: ""})
+        alert("Company added successfully");
+        navigate("/login")
 
     }
 
