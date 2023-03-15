@@ -14,7 +14,10 @@ export const ClientData = {
         Phone: { type: 'string' },
         email: { type: 'string' },
         website: { type: 'string' },
-        information : {type : 'string'}
+        information : {type : 'string'},
+        InvoiceCurrency : {type : 'string'}
+
+        
 
 
     },

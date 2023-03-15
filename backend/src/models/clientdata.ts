@@ -46,6 +46,9 @@ const clientdata = new mongoose.Schema({
     },
     information :{
         type : "String"
+    },
+    InvoiceCurrency :{
+        type : "String"
     }
 
 
@@ -62,7 +65,8 @@ export interface ClientDoc extends mongoose.Document {
     Phone: String,
     email: String,
     website: String,
-    information : String
+    information : String,
+    InvoiceCurrency : String
 
 
 
