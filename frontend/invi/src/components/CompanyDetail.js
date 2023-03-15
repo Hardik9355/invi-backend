@@ -32,9 +32,9 @@ export default function CompanyDetail(props) {
         setCompanyRegister({...companyRegister, [name]:value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('/dev/addcompanydata',companyRegister).then(res => console.log(res.data));
+        await axios.post('/dev/addcompanydata',companyRegister).then(res => console.log(res.data));
 
         const newRecord = {...companyRegister, id: new Date().getTime().toString()}
         console.log(records);
