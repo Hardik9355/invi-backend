@@ -3,7 +3,7 @@ export const ClientData = {
     properties: {
 
 
-        taxno: { type: 'string' },
+        companyname : {type : 'string'},
         fname: { type: 'string' },
         lname: { type: 'string' },
         Address1: { type: 'string' },
