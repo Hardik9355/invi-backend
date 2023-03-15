@@ -6,19 +6,19 @@ export default function CompanyDetail(props) {
     const navigate = useNavigate();
 
     const [companyRegister,setCompanyRegister] = useState({
-        CompanyName: "",
+        companyname: "",
         taxregister:"",
-        TaxRegisterationNumber:"",
+        taxno:"",
         fname: "",
         lname: "",
-        addres1: "",
-        addres2: "",
+        Address1: "",
+        Address2: "",
         PostalCode: "",
         City: "",
         Country: "",
-        PNumber: "",
-        Email: "",
-        Website: ""
+        Phone: "",
+        email: "",
+        website: ""
 
     });
 
@@ -41,9 +41,9 @@ export default function CompanyDetail(props) {
         setRecords([...records, newRecord]);
         console.log(records);
 
-        setCompanyRegister({CompanyName: "",taxregister:"",taxnumber:"",fname: "",lname: "",addres1: "",addres2: "",PostalCode: "",City: "",Country: "",PNumber: "",Email: "",Website: ""})
+        setCompanyRegister({companyname: "",taxregister:"",taxno:"",fname: "",lname: "",Address1: "",Address2: "",PostalCode: "",City: "",Country: "",Phone: "",email: "",website: ""})
         alert("Company added successfully");
-        navigate("/login")
+        navigate("/login/home")
 
     }
 
@@ -54,11 +54,11 @@ export default function CompanyDetail(props) {
         <form action="" onSubmit={handleSubmit}>
             <h2 className="text-blue-700 text-3xl font-semibold my-4">Company detail....</h2>
             {/* block first */}
-            <div id="companyName" className="flex flex-row ">
+            <div id="companyname" className="flex flex-row ">
                     {/* <!-- first name --> */}
-                    <div id="companyName" className="w-1/2 mr-2">
+                    <div id="companyname" className="w-1/2 mr-2">
                         <label htmlFor="cname" className="text-sm">Company/Sender name*</label><br />
-                        <input type="text" autoComplete='off' value={companyRegister.CompanyName} onChange={handleInput} name="CompanyName" id="cname"
+                        <input type="text" autoComplete='off' value={companyRegister.companyname} onChange={handleInput} name="companyname" id="cname"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
                             outline-blue-600 shadow-sm" />
                     </div>
@@ -66,7 +66,7 @@ export default function CompanyDetail(props) {
                     <div id="cNumber" className="w-1/2 ml-2">
                         <label  className="text-sm lastnameLabel" value={companyRegister.taxregister} onChange={handleInput} name="taxregister" contenteditable="true">Tax Registration no.</label><br />
                         <i class="fa-solid fa-pencil"></i>
-                        <input type="text" autoComplete='off' value={companyRegister.taxnumber} onChange={handleInput} name="taxnumber" id="cNumber"
+                        <input type="text" autoComplete='off' value={companyRegister.taxno} onChange={handleInput} name="taxno" id="cNumber"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
                     </div>
               </div>
@@ -93,14 +93,14 @@ export default function CompanyDetail(props) {
                     {/* <!-- first name --> */}
                     <div id="add1" className="w-1/2 mr-2">
                         <label htmlFor="address1" className="text-sm">Address line 1</label><br />
-                        <input type="text" autoComplete='off' value={companyRegister.addres1} onChange={handleInput} name="addres1" id="address1"
+                        <input type="text" autoComplete='off' value={companyRegister.Address1} onChange={handleInput} name="Address1" id="address1"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
                             outline-blue-600 shadow-sm" />
                     </div>
                     {/* <!-- last name --> */}
                     <div id="add2" className="w-1/2 ml-2 ">
                         <label htmlFor="address2" className="text-sm">Address line 2</label><br />
-                        <input type="text" autoComplete='off' value={companyRegister.addres2} onChange={handleInput} name="addres2" id="address2"
+                        <input type="text" autoComplete='off' value={companyRegister.Address2} onChange={handleInput} name="Address2" id="address2"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
                     </div>
               </div>
@@ -133,8 +133,8 @@ export default function CompanyDetail(props) {
                     </div>
                     {/* <!-- last name --> */}
                     <div id="numbr" className="w-1/2 ml-2">
-                        <label htmlFor="PNumber" className="text-sm">Phone number</label><br />
-                        <input type="number" autoComplete='off' value={companyRegister.PNumber} onChange={handleInput} name="PNumber" id="PNumber"
+                        <label htmlFor="Phone" className="text-sm">Phone number</label><br />
+                        <input type="number" autoComplete='off' value={companyRegister.Phone} onChange={handleInput} name="Phone" id="Phone"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
                     </div>
               </div>
@@ -143,15 +143,15 @@ export default function CompanyDetail(props) {
               <div id="link" className="flex flex-row ">
                     {/* <!-- first name --> */}
                     <div id="mail" className="w-1/2 mr-2">
-                        <label htmlFor="mailEmail" className="text-sm">Email</label><br />
-                        <input type="Email" autoComplete='off' value={companyRegister.Email} onChange={handleInput} name="Email" id="mailEmail"
+                        <label htmlFor="mailemail" className="text-sm">email</label><br />
+                        <input type="email" autoComplete='off' value={companyRegister.email} onChange={handleInput} name="email" id="mailemail"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
                             outline-blue-600 shadow-sm" />
                     </div>
                     {/* <!-- last name --> */}
-                    <div id="Website" className="w-1/2 ml-2 ">
-                        <label htmlFor="webWebsite" className="text-sm">Website</label><br />
-                        <input type="text" autoComplete='off' value={companyRegister.Website} onChange={handleInput} name="Website" id="website"
+                    <div id="website" className="w-1/2 ml-2 ">
+                        <label htmlFor="webwebsite" className="text-sm">website</label><br />
+                        <input type="text" autoComplete='off' value={companyRegister.website} onChange={handleInput} name="website" id="website"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent outline-blue-600 shadow-sm" />
                     </div>
               </div>
