@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from '../axios';
 
 export default function ClientDetail() {
+    const navigate = useNavigate();
 
     const [clientRegister,setClientRegister] = useState({
         CompanyName: "",
@@ -29,8 +32,10 @@ export default function ClientDetail() {
         setClientRegister({...clientRegister, [name]:value})
     }
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
+        await axios.post('/dev/addclientdata',clientRegister).then(res => console.log(res.data));
 
         const newRecord = {...clientRegister, id: new Date().getTime().toString()}
         console.log(records);
@@ -38,6 +43,8 @@ export default function ClientDetail() {
         console.log(records);
 
         setClientRegister({CompanyName: "",Country: "", fname: "",lname: "",email: "",PNumber: "",addres1: "",addres2: "",PostalCode: "",City: "",Website: "",InvoiceCurrency: "",Description: ""})
+        alert("Client added successfully");
+        navigate("/login/home")
     }
 
 
