@@ -13,7 +13,7 @@ export default function CompanyDetail(props) {
         lname: "",
         Address1: "",
         Address2: "",
-        Postalcode: "",
+        PostalCode: "",
         City: "",
         Country: "",
         Phone: "",
@@ -32,16 +32,16 @@ export default function CompanyDetail(props) {
         setCompanyRegister({...companyRegister, [name]:value})
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await axios.post('/dev/addcompanydata',companyRegister).then(res => console.log(res.data));
+        axios.post('/dev/addcompanydata',companyRegister).then(res => console.log(res.data));
 
         const newRecord = {...companyRegister, id: new Date().getTime().toString()}
         console.log(records);
         setRecords([...records, newRecord]);
         console.log(records);
 
-        setCompanyRegister({companyname: "",taxregister:"",taxno:"",fname: "",lname: "",Address1: "",Address2: "",Postalcode: "",City: "",Country: "",Phone: "",email: "",website: ""})
+        setCompanyRegister({companyname: "",taxregister:"",taxno:"",fname: "",lname: "",Address1: "",Address2: "",PostalCode: "",City: "",Country: "",Phone: "",email: "",website: ""})
         alert("Company added successfully");
         navigate("/login/home")
 
@@ -106,11 +106,11 @@ export default function CompanyDetail(props) {
               </div>
 
               {/* block four */}
-              <div id="Postalcode" className="flex flex-row ">
+              <div id="PostalCode" className="flex flex-row ">
                     {/* <!-- first name --> */}
                     <div id="pCode" className="w-1/2 mr-2">
-                        <label htmlFor="postal" className="text-sm">Postalcode</label><br />
-                        <input type="number" autoComplete='off' value={companyRegister.Postalcode} onChange={handleInput} name="Postalcode" id="postal"
+                        <label htmlFor="postal" className="text-sm">PostalCode</label><br />
+                        <input type="number" autoComplete='off' value={companyRegister.PostalCode} onChange={handleInput} name="PostalCode" id="postal"
                             className="h-8 w-full rounded-md border border-slate-300 text-sm pl-2 bg-transparent    
                             outline-blue-600 shadow-sm" />
                     </div>
