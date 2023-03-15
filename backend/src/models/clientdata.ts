@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const companydata = new mongoose.Schema({
+const clientdata = new mongoose.Schema({
     companyname: {
         type: "String",
         required: true,
@@ -50,7 +50,7 @@ const companydata = new mongoose.Schema({
 
 
 });
-export interface CompanyDoc extends mongoose.Document {
+export interface ClientDoc extends mongoose.Document {
     companyname: String,
     fname: String,
     lname: String,
@@ -68,4 +68,4 @@ export interface CompanyDoc extends mongoose.Document {
 
 }
 
-export default mongoose.model<CompanyDoc>('Company', companydata);
+export default mongoose.model<ClientDoc>('Client', clientdata);
