@@ -49,14 +49,27 @@ export const login: any = async (event) => {
                 { email: loginuser.email, id: loginuser._id },
                 process.env.SECRETKEY
             );
-            console.log("successfully login");
+            const response = {
+                statusCode: 200,
+                headers: {
+                    'set-cookie': `logintoken=${tokens}; path=/login/home;  expires=Sun, 20 Mar 2023 12:00:00 GMT`
+                },
+                body: JSON.stringify({ message: 'Cookie set successfully' })
 
-            console.log("hello");
-            return formatJSONResponse({ message: tokens });
+            };
+            console.log(response);
+            return response;
+
+
 
         }
         else {
-            console.log("login unsuccessful");
+            const response = {
+                statusCode: 400,
+
+                body: JSON.stringify({ message: 'Invalid Details' })
+            }; return response;
+
         }
 
     }

@@ -10,7 +10,7 @@ export const addclientdata: any = async (event) => {
         const clientData = JSON.parse(event.body);
         const createclientdata = new clientdata({
             companyname: clientData.companyname,
-           
+
             fname: clientData.fname,
             lname: clientData.lname,
             Address1: clientData.Address1,
@@ -21,7 +21,7 @@ export const addclientdata: any = async (event) => {
             Phone: clientData.Phone,
             email: clientData.email,
             website: clientData.website,
-            information : clientData.information
+            information: clientData.information
 
         });
         console.log("hello")
