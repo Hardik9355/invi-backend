@@ -60,6 +60,8 @@ const handleSubmit = async (e) => {
               </div>
               
               <button type='submit' className='w-full my-5 py-2 bg-blue-500 hover:bg-blue-900  text-white font-semibold rounded-lg' >Sign In</button>
+              <div className='flex items-center justify-center text-white '>Or</div>
+              <button type='submit' onClick={() => navigate("/signup/person")} className='w-full my-5 py-2 bg-blue-500 hover:bg-blue-900  text-white font-semibold rounded-lg' >Sign Up</button>
 
             </form>
         </div>
