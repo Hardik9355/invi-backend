@@ -49,6 +49,10 @@ export const login: any = async (event) => {
                 { email: loginuser.email, id: loginuser._id },
                 process.env.SECRETKEY
             );
+<<<<<<< HEAD
+=======
+            
+>>>>>>> e11b0ea (kscd)
             const response = {
                 statusCode: 200,
                 headers: {
