@@ -1,12 +1,7 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import connectDB from "src/config/db";
 require("dotenv").config();
-<<<<<<< HEAD
 import clientdata from "src/models/clientdata";
-=======
-import clientdata from "src/models/companydata";
-
->>>>>>> e11b0ea (kscd)
 export const addclientdata: any = async (event) => {
     console.log("hello");
     

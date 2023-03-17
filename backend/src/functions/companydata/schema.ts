@@ -13,7 +13,7 @@ export const CompanyData = {
         Country: { type: 'string' },
         Phone: { type: 'string' },
         email: { type: 'string' },
-        website: { type: 'string', unique: 'true' },
+        website: { type: 'string'},
 
 
     },

@@ -42,27 +42,17 @@ export const login: any = async (event) => {
         const message = JSON.parse(event.body);
         console.log(message);
         let loginuser = await User.findOne({ email: message.email });
-        // console.log(loginuser);
+        console.log(loginuser);
         const result = await bcrypt.compare(message.password, loginuser.password);
+        console.log("hello");
         if (result == true) {
             tokens = token.sign(
                 { email: loginuser.email, id: loginuser._id },
                 process.env.SECRETKEY
             );
-<<<<<<< HEAD
-=======
+            return formatJSONResponse({tokens});
             
->>>>>>> e11b0ea (kscd)
-            const response = {
-                statusCode: 200,
-                headers: {
-                    'set-cookie': `logintoken=${tokens}; path=/login/home;  expires=Sun, 20 Mar 2023 12:00:00 GMT`
-                },
-                body: JSON.stringify({ message: 'Cookie set successfully' })
-
-            };
-            console.log(response);
-            return response;
+           
 
 
 
@@ -71,7 +61,7 @@ export const login: any = async (event) => {
             const response = {
                 statusCode: 400,
 
-                body: JSON.stringify({ message: 'Invalid Details' })
+                body: JSON.stringify({ message: 'Invalid Detailsssssss' })
             }; return response;
 
         }

@@ -7,7 +7,7 @@ const companydata = new mongoose.Schema({
     taxno: {
         type: "String",
         required: true,
-        unique: true
+        
     },
     fname: {
         type: "String",

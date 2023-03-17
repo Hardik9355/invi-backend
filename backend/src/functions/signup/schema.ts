@@ -4,7 +4,7 @@ export const Register = {
 
     fname: { type: 'string' },
     lname: { type: 'string' },
-    email: { type: 'string', unique: 'true' },
+    email: { type: 'string'},
     password: { type: 'string' },
 
 

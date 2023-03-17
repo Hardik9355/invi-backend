@@ -7,7 +7,7 @@ const invoicedata = new mongoose.Schema({
     hours: {
         type: "String",
         required: true,
-        unique: true
+       
     },
     price: {
         type: "String",
