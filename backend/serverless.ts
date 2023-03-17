@@ -1,5 +1,4 @@
 import type { AWS } from '@serverless/typescript';
-import type {Serverless}  from 'serverless/aws';
 
 import { registers, logins, addcompanies, addclients } from '@functions/index';
 import { type } from 'os';
@@ -44,7 +43,7 @@ const serverlessConfiguration: AWS = {
       types:['*/*'],
       contentHandling: 'CONVERT_TO_BINARY',
       cors:{
-        origins: ['https://invi-frontend.vercel.app'],
+        origins: ['https://invi-frontend-ox42.vercel.app/'],
         headers : ['Content-Type'],
         allowCredentials:true,
 
