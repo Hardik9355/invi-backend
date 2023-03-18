@@ -10,7 +10,7 @@ export const clientfunctions = {
         http: {
           method: 'post',
           path: 'addclientdata',
-          request: {
+        request: {
             schemas: {
               'application/json': ClientData,
             },

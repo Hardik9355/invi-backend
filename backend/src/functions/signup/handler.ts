@@ -10,6 +10,7 @@ export const register: any = async (event) => {
     try {
 
         const message = JSON.parse(event.body);
+        console.log(message);
         const saltRounds = 10;
         const password = message.password;
         // bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {

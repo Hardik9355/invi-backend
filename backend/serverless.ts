@@ -1,13 +1,12 @@
 import type { AWS } from '@serverless/typescript';
 
-import { registers, logins, addcompanies, addclients } from '@functions/index';
-import { type } from 'os';
+import { registers, logins, addcompanies, addclients , axioshandlers} from '@functions/index';
 
 
 const serverlessConfiguration: AWS = {
-  service: 'invi',
+  service: 'invoicebuilder',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild', 'serverless-offline' , 'serverless-apigw-binary'],
+  plugins: ['serverless-esbuild', 'serverless-offline' ],
   provider: {
     name: 'aws',
     runtime: 'nodejs16.x',
@@ -25,7 +24,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { registers, logins, addcompanies, addclients },
+  functions: { registers, logins, addcompanies, addclients  , axioshandlers},
   package: { individually: true },
   custom: {
     
@@ -38,16 +37,6 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
-    },
-    apigwBinary:{
-      types:['*/*'],
-      contentHandling: 'CONVERT_TO_BINARY',
-      cors:{
-        origins: ['https://invi-frontend-ox42.vercel.app/'],
-        headers : ['Content-Type'],
-        allowCredentials:true,
-
-      },
     },
     
     
