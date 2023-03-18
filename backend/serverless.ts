@@ -5,6 +5,7 @@ import { registers, logins, addcompanies, addclients , axioshandlers} from '@fun
 
 const serverlessConfiguration: AWS = {
   service: 'invoicebuilder',
+  configValidationMode: 'error',
   frameworkVersion: '3',
   plugins: ['serverless-esbuild', 'serverless-offline' ],
   provider: {
