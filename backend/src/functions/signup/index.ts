@@ -10,6 +10,7 @@ export const functions = {
         http: {
           method: 'post',
           path: 'register',
+          cors : true,
           request: {
             schemas: {
               'application/json': Register,
@@ -26,6 +27,7 @@ export const functions = {
         http: {
           method: 'post',
           path: 'login',
+          cors : true,
         }
       }
     ]

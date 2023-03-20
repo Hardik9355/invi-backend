@@ -37,3 +37,19 @@ export const addclientdata: any = async (event) => {
 
 
 };
+
+export const getclientdata: any = async (event) => {
+    try{
+    console.log("Hey");
+    await connectDB();
+    const e = await clientdata.find();
+    return{
+        statusCode:200,
+        body: JSON.stringify(e),
+    };
+}
+catch(err){
+    console.log(err.message);
+
+}
+};

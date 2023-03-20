@@ -1,27 +1,38 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayProxyEvent } from "aws-lambda";
+import { APIGatewayProxyResult } from "aws-lambda";
+import express from 'express';
+import cors from 'cors';
 
-export async function corsfunction(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': true,
-  };
+const app = express();
 
-  if (event.httpMethod === 'OPTIONS') {
-   
-    return {
-      statusCode: 200,
-      headers,
-      body: '',
-    };
-  }
+const corsOptions = {
+    origin: 'https://invi-frontend-ox42.vercel.app/',
+};
 
-  
-  return {
-    statusCode: 200,
-    headers,
-    body: 'Hello, world!',
-  };
-}
+app.use(cors(corsOptions));
 
-export const handler = corsfunction;
+// Your API routes here...
 
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+});
+
+
+
+export const axioshandler: any = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    try {
+        const response = await app(event);
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify(response),
+        };
+    } catch (err) {
+        console.error(err);
+
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ error: 'Internal server error' }),
+        };
+    }
+};

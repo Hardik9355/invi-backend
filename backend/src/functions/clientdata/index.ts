@@ -1,4 +1,4 @@
-import { ClientData } from './schema';
+import { ClientData  } from './schema';
 
 import { handlerPath } from '@libs/handler-resolver';
 
@@ -10,11 +10,25 @@ export const clientfunctions = {
         http: {
           method: 'post',
           path: 'addclientdata',
+          cors : true,
         request: {
             schemas: {
               'application/json': ClientData,
             },
           },
+        },
+      },
+    ],
+  },
+  getclientdata: {
+    handler: `${handlerPath(__dirname)}/handler.getclientdata`,
+    events: [
+      {
+        http: {
+          method: 'get',
+          path: 'getclientdata',
+          cors : true,
+        
         },
       },
     ],
