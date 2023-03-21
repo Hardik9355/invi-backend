@@ -5,22 +5,23 @@ import companydata from "src/models/companydata";
 export const addcompanydata: any = async (event) => {
     console.log("hello");
     await connectDB();
+    console.log("ansdf");
     try {
 
-        const data = JSON.parse(event.body);
+        const companydatas = JSON.parse(event.body);
         const createcompanydata = new companydata({
-            companyname: data.companyname,
-            taxno: data.taxno,
-            fname: data.fname,
-            lname: data.lname,
-            Address1: data.Address1,
-            Address2: data.Address2,
-            Postalcode: data.Postalcode,
-            City: data.City,
-            Country: data.Country,
-            Phone: data.Phone,
-            email: data.email,
-            website: data.website
+            companyname: companydatas.companyname,
+            taxno: companydatas.taxno,
+            fname: companydatas.fname,
+            lname: companydatas.lname,
+            Address1: companydatas.Address1,
+            Address2: companydatas.Address2,
+            Postalcode: companydatas.Postalcode,
+            City: companydatas.City,
+            Country: companydatas.Country,
+            Phone: companydatas.Phone,
+            email: companydatas.email,
+            website: companydatas.website
 
         });
         console.log("hello")
