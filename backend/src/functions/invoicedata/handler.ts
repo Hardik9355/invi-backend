@@ -7,7 +7,6 @@ export const addinvoicedata: any = async (event) => {
     console.log("hello");
     await connectDB();
     try {
-
         const invoicedatas = JSON.parse(event.body);
         const createinvoicedata = new invoicedata({
             logo: invoicedatas.logo,
@@ -50,4 +49,4 @@ export const getinvoicedata: any = async (event) => {
     }
 };
 
-
+ 
