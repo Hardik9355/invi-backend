@@ -73,3 +73,18 @@ export const login: any = async (event) => {
         console.log("invalid details");
     }
 };
+export const getuserdata: any = async (event) => {
+    try {
+        console.log("Hey");
+        await connectDB();
+        const e = await User.find();
+        return {
+            statusCode: 200,
+            body: JSON.stringify(e),
+        };
+    }
+    catch (err) {
+        console.log(err.message);
+
+    }
+};

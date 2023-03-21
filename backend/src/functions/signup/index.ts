@@ -31,5 +31,18 @@ export const functions = {
         }
       }
     ]
-  }
+  },
+  getuserdata: {
+    handler: `${handlerPath(__dirname)}/handler.getuserdata`,
+    events: [
+      {
+        http: {
+          method: 'get',
+          path: 'getuserdata',
+          cors : true,
+        
+        },
+      },
+    ],
+  },
 };

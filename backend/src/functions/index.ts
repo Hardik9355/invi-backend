@@ -11,5 +11,7 @@ export const addclients = clientfunctions.addclientdata;
 export const getclients = clientfunctions.getclientdata;
 export const getcompanydata = companyfunctions.getcompanydata;
 export const axiosfunction = axiosfunctions.axiosdata;
+export const getinvoicedatas = invoicefunctions.getinvoicedata;
+export const getuserdatas = functions.getuserdata;
 export const invoicefunction= invoicefunctions.addinvoicedata;
 
