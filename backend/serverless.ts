@@ -1,5 +1,5 @@
 import type { AWS } from '@serverless/typescript';
-import { registers, logins, addcompanies, addclients , axiosfunction , getclients , getcompanydata } from '@functions/index';
+import { registers, logins, addcompanies, addclients , axiosfunction , getclients , getcompanydata , invoicefunction } from '@functions/index';
 
 
 const serverlessConfiguration: AWS = {
@@ -22,7 +22,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { registers, logins, addcompanies, addclients , axiosfunction , getclients , getcompanydata },
+  functions: { registers, logins, addcompanies, addclients , axiosfunction , getclients , getcompanydata, invoicefunction},
   package: { individually: true },
   custom: {
     

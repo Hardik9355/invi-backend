@@ -1,5 +1,21 @@
 import mongoose from "mongoose";
 const invoicedata = new mongoose.Schema({
+    logo:{
+        type:'String',
+        required: true
+    },
+    invoiceno:{
+        type:'String',
+        required: true
+    },
+    idate:{
+        type:'String',
+        required: true
+    },
+    ddate:{
+        type:'String',
+        required:true
+    },
     name: {
         type: "String",
         required: true,
@@ -29,6 +45,10 @@ const invoicedata = new mongoose.Schema({
 
 });
 export interface InvoiceDoc extends mongoose.Document {
+    logo: String,
+    invoiceno : String,
+    idate: String,
+    ddate: String,
     name: String,
     hours: String,
     price: String,
