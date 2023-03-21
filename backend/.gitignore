@@ -1,3 +1,4 @@
+.env
 # package directories
 node_modules
 jspm_packages
@@ -7,5 +8,5 @@ jspm_packages
 
 # esbuild directories
 .esbuild
-.env
+
 .serverless
