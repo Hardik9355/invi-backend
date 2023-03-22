@@ -1,4 +1,4 @@
-import { formatJSONResponse } from "@libs/api-gateway";
+import { formatJSONResponse } from "src/utills/ApiGateway";
 import connectDB from "src/config/db";
 require("dotenv").config();
 import invoicedata from "src/models/invoicedata";
@@ -24,10 +24,10 @@ export const addinvoicedata: any = async (event) => {
         console.log("hello")
         const invoiceData = await createinvoicedata.save();
         console.log("Successful");
-        return formatJSONResponse({ message: invoiceData });
+        return formatJSONResponse(200, { data: invoiceData });
     }
     catch (error) {
-        console.log(error.message);
+        return formatJSONResponse(400, { data: "Invalid Details" });
     }
 
 
@@ -38,15 +38,10 @@ export const getinvoicedata: any = async (event) => {
         console.log("Hey");
         await connectDB();
         const e = await invoicedata.find();
-        return {
-            statusCode: 200,
-            body: JSON.stringify(e),
-        };
+        return formatJSONResponse(200, { data: "Successful" });
     }
     catch (err) {
-        console.log(err.message);
-
+        return formatJSONResponse(400, { data: "Invalid Details" });
     }
-};
 
- 
+};

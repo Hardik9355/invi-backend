@@ -31,7 +31,7 @@ export const addcompanydata: any = async (event) => {
         return formatJSONResponse(200, { data: companyData });
     }
     catch (error) {
-        return formatJSONResponse(200, { data : "Invalid details" });
+        return formatJSONResponse(400, { data : "Invalid details" });
     }
 
 
@@ -42,13 +42,10 @@ export const getcompanydata: any = async (event) => {
     console.log("Hey");
     await connectDB();
     const e = await companydata.find();
-    return{
-        statusCode:200,
-        body: JSON.stringify(e),
-    };
+    return formatJSONResponse(200, { data: e });
 }
 catch(err){
-    console.log(err.message);
+    return formatJSONResponse(400, { data: "Invalid Request" });
 
 }
 };

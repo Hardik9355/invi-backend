@@ -13,7 +13,6 @@ export const register: any = async (event) => {
         console.log(message);
         const saltRounds = 10;
         const password = message.password;
-        // bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
         const createuser = new User({
             fname: message.fname,
@@ -26,7 +25,8 @@ export const register: any = async (event) => {
         console.log("Successful");
         return formatJSONResponse(200, { data: userdata });
     } catch (error) {
-        console.log(error.message);
+        return formatJSONResponse(400, { data: "Invalid Details" });
+
     }
 };
 export const login: any = async (event) => {
@@ -43,12 +43,12 @@ export const login: any = async (event) => {
             const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY)
             console.log("Successful");
             return formatJSONResponse(200, { data: tokens });
-            
+
         } else {
-            return formatJSONResponse(400, { message: "Invalid Detsdfvailsss" });
+            return formatJSONResponse(400, { data: "Invalid Details" });
         }
     } catch (error) {
-        console.log("invalid detailszsdfg");
+        return formatJSONResponse(400, { data: "Not found" });
     }
 };
 export const getuserdata: any = async (event) => {
@@ -56,11 +56,9 @@ export const getuserdata: any = async (event) => {
         console.log("Hey");
         await connectDB();
         const e = await User.find();
-        return {
-            statusCode: 200,
-            body: JSON.stringify(e),
-        };
+        return formatJSONResponse(200, { data: e });
+
     } catch (err) {
-        console.log(err.message);
+        return formatJSONResponse(400, { data: "Invalid request" });
     }
 };

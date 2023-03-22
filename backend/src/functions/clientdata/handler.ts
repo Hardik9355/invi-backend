@@ -32,7 +32,7 @@ export const addclientdata: any = async (event) => {
         return formatJSONResponse(200, { data: clientDatas });
     }
     catch (error) {
-        return formatJSONResponse(200, { data: "Invalid Details" });
+        return formatJSONResponse(400, { data: "Invalid Details" });
     }
 
 
@@ -49,7 +49,7 @@ export const getclientdata: any = async (event) => {
 
     }
     catch (err) {
-        console.log(err.message);
+        return formatJSONResponse(400, { data: "Invalid request" });
 
     }
 };
