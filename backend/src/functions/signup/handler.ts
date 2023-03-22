@@ -38,7 +38,7 @@ export const login: any = async (event) => {
 
     try {
         await connectDB();
-        let tokens;
+        
         console.log("Hey");
         const message = JSON.parse(event.body);
         console.log(message);
@@ -47,16 +47,12 @@ export const login: any = async (event) => {
         const result = await bcrypt.compare(message.password, loginuser.password);
         console.log("hello");
         if (result == true) {
-            tokens = token.sign(
+            const tokens = token.sign(
                 { email: loginuser.email, id: loginuser._id },
-                process.env.SECRETKEY
+                
             );
             return formatJSONResponse({tokens});
             
-           
-
-
-
         }
         else {
             const response = {
