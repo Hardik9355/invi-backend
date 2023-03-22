@@ -58,7 +58,6 @@ const serverlessConfiguration: AWS = {
       platform: "node",
       concurrency: 10,
     },
-    cors: true,
   },
 };
 
