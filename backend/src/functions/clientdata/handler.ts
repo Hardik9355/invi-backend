@@ -1,10 +1,11 @@
-import { formatJSONResponse } from "@libs/api-gateway";
+import { formatJSONResponse } from "src/utills/ApiGateway";
+
 import connectDB from "src/config/db";
 require("dotenv").config();
 import clientdata from "src/models/clientdata";
 export const addclientdata: any = async (event) => {
     console.log("hello");
-    
+
     await connectDB();
     try {
 
@@ -28,10 +29,10 @@ export const addclientdata: any = async (event) => {
         console.log("hello")
         const clientDatas = await createclientdata.save();
         console.log("Successful");
-        return formatJSONResponse({ message: clientDatas });
+        return formatJSONResponse(200, { data: clientDatas });
     }
     catch (error) {
-        console.log(error.message);
+        return formatJSONResponse(200, { data: "Invalid Details" });
     }
 
 
@@ -39,17 +40,16 @@ export const addclientdata: any = async (event) => {
 };
 
 export const getclientdata: any = async (event) => {
-    try{
-    console.log("Hey");
-    await connectDB();
-    const e = await clientdata.find();
-    return{
-        statusCode:200,
-        body: JSON.stringify(e),
-    };
-}
-catch(err){
-    console.log(err.message);
+    try {
+        console.log("Hey");
+        await connectDB();
+        const e = await clientdata.find();
 
-}
+        return formatJSONResponse(200, { data: e });
+
+    }
+    catch (err) {
+        console.log(err.message);
+
+    }
 };

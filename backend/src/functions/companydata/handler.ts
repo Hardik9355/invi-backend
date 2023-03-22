@@ -1,4 +1,5 @@
-import { formatJSONResponse } from "@libs/api-gateway";
+import { formatJSONResponse } from "src/utills/ApiGateway";
+
 import connectDB from "src/config/db";
 require("dotenv").config();
 import companydata from "src/models/companydata";
@@ -27,10 +28,10 @@ export const addcompanydata: any = async (event) => {
         console.log("hello")
         const companyData = await createcompanydata.save();
         console.log("Successful");
-        return formatJSONResponse({ message: companyData });
+        return formatJSONResponse(200, { data: companyData });
     }
     catch (error) {
-        console.log(error.message);
+        return formatJSONResponse(200, { data : "Invalid details" });
     }
 
 
