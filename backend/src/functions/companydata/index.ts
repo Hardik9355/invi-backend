@@ -3,7 +3,7 @@ import { CompanyData } from './schema';
 import { handlerPath } from '@libs/handler-resolver';
 
 export const companyfunctions = {
-    addcompanydata: {
+  addcompanydata: {
     handler: `${handlerPath(__dirname)}/handler.addcompanydata`,
     events: [
       {
@@ -27,6 +27,19 @@ export const companyfunctions = {
         http: {
           method: 'get',
           path: 'getcompanydata',
+          cors : true,
+        
+        },
+      },
+    ],
+  },
+  updatecompanydata: {
+    handler: `${handlerPath(__dirname)}/handler.updatecompanydata`,
+    events: [
+      {
+        http: {
+          method: 'put',
+          path: 'updatecompanydata',
           cors : true,
         
         },

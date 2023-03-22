@@ -4,12 +4,14 @@ import {
   logins,
   addcompanies,
   addclients,
-  axiosfunction,
+
   getclients,
   getcompanydata,
   invoicefunction,
   getinvoicedatas,
   getuserdatas,
+  updatecompanydatas,
+  deleteclientdatas,
 } from "@functions/index";
 
 const serverlessConfiguration: AWS = {
@@ -39,12 +41,14 @@ const serverlessConfiguration: AWS = {
     logins,
     addcompanies,
     addclients,
-    axiosfunction,
+
     getclients,
     getcompanydata,
     invoicefunction,
     getinvoicedatas,
     getuserdatas,
+    updatecompanydatas,
+    deleteclientdatas,
   },
   package: { individually: true },
   custom: {
@@ -59,7 +63,7 @@ const serverlessConfiguration: AWS = {
       concurrency: 10,
     },
   },
-  
+
 };
 
 module.exports = serverlessConfiguration;

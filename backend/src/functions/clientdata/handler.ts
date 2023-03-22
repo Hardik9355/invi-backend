@@ -53,3 +53,14 @@ export const getclientdata: any = async (event) => {
 
     }
 };
+export const deleteclientdata:any = async(event) =>{
+    try{
+        await connectDB();
+        const data = JSON.parse(event.body);
+        await clientdata.findByIdAndDelete(data._id);
+        return formatJSONResponse(200, { data: "delete successful" });
+    }
+    catch(err){
+        return formatJSONResponse(400, { data: "invalid details" });
+    }
+}

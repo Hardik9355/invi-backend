@@ -1,14 +1,11 @@
 import { formatJSONResponse } from "src/utills/ApiGateway";
-
 import connectDB from "src/config/db";
 require("dotenv").config();
 import companydata from "src/models/companydata";
 export const addcompanydata: any = async (event) => {
     console.log("hello");
     await connectDB();
-    console.log("ansdf");
     try {
-
         const companydatas = JSON.parse(event.body);
         const createcompanydata = new companydata({
             companyname: companydatas.companyname,
@@ -31,23 +28,47 @@ export const addcompanydata: any = async (event) => {
         return formatJSONResponse(200, { data: companyData });
     }
     catch (error) {
-        return formatJSONResponse(400, { data : "Invalid details" });
+        return formatJSONResponse(200, { data: "invalid details" });
     }
 
 
 
 };
-export const getcompanydata: any = async (event) => {
-    try{
-    console.log("Hey");
-    await connectDB();
-    const e = await companydata.find();
-    return formatJSONResponse(200, { data: e });
-}
-catch(err){
-    return formatJSONResponse(400, { data: "Invalid Request" });
+export const getcompanydata: any = async () => {
+    try {
+        console.log("Hey");
+        await connectDB();
+        const e = await companydata.find();
+        return formatJSONResponse(200, { data: e });
+    }
+    catch (err) {
+        return formatJSONResponse(400, { data: "Invalid Request" });
 
-}
+    }
+};
+export const updatecompanydata: any = async (event) => {
+    
+    try {
+        await connectDB();
+        console.log("hello");
+        const data = JSON.parse(event.body);
+        console.log(data);
+        let companyd = await companydata.findById(data._id);
+        console.log(companyd);
+        companyd.fname = data.fname || companyd.fname;
+
+        companyd.lname = data.lname || companyd.lname;
+        companyd.Phone = data.Phone || companyd.Phone;
+        companyd.email = data.email || companyd.email;
+        const result = await companyd.save();
+        console.log(result);
+            
+
+    } 
+    catch{
+        return formatJSONResponse(400, { data: "Invalid Operation" });
+
+    }
 };
 
 
