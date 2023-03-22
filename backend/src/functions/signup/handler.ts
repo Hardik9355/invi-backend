@@ -44,12 +44,7 @@ export const login: any = async (event) => {
       const tokens = token.sign({ email: loginuser.email, id: loginuser._id });
       return formatJSONResponse(200, { data: tokens });
     } else {
-      const response = {
-        statusCode: 400,
-
-        body: JSON.stringify({ message: "Invalid Detailsssssss" }),
-      };
-      return response;
+      return formatJSONResponse(400, { message: "Invalid Details" });
     }
   } catch (error) {
     console.log("invalid details");
