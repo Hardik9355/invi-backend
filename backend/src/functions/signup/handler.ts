@@ -41,8 +41,9 @@ export const login: any = async (event) => {
         console.log("hello");
         if (result == true) {
             const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY)
-            return formatJSONResponse(200, { data: tokens });
             console.log("Successful");
+            return formatJSONResponse(200, { data: tokens });
+            
         } else {
             return formatJSONResponse(400, { message: "Invalid Detsdfvailsss" });
         }
