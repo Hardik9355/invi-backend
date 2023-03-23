@@ -15,10 +15,12 @@ export const clientfunctions = {
             schemas: {
               'application/json': ClientData,
             },
+          
           },
         },
       },
     ],
+
   },
   getclientdata: {
     handler: `${handlerPath(__dirname)}/handler.getclientdata`,

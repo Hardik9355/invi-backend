@@ -2,10 +2,14 @@ import { formatJSONResponse } from "src/utills/ApiGateway";
 import connectDB from "src/config/db";
 require("dotenv").config();
 import companydata from "src/models/companydata";
+import {authorize} from "src/functions/authorization/handler";
 export const addcompanydata: any = async (event) => {
     console.log("hello");
     await connectDB();
+    const result = await authorize(event);
+    if(result.result === true){
     try {
+
         const companydatas = JSON.parse(event.body);
         const createcompanydata = new companydata({
             companyname: companydatas.companyname,
@@ -22,15 +26,20 @@ export const addcompanydata: any = async (event) => {
             website: companydatas.website
 
         });
+    
         console.log("hello")
         const companyData = await createcompanydata.save();
         console.log("Successful");
         return formatJSONResponse(200, { data: companyData });
     }
-    catch (error) {
-        return formatJSONResponse(200, { data: "invalid details" });
-    }
 
+    catch (error) {
+        return formatJSONResponse(400, { data: error.message });
+    }
+    }
+    else{
+        return formatJSONResponse(400, { data: "Session expired" });
+    }
 
 
 };

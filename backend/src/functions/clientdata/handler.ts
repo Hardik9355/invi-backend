@@ -3,10 +3,13 @@ import { formatJSONResponse } from "src/utills/ApiGateway";
 import connectDB from "src/config/db";
 require("dotenv").config();
 import clientdata from "src/models/clientdata";
+import {authorize} from "src/functions/authorization/handler";
 export const addclientdata: any = async (event) => {
     console.log("hello");
 
     await connectDB();
+    const result = await authorize(event);
+    if(result.result === true){
     try {
 
         const clientData = JSON.parse(event.body);
@@ -23,7 +26,8 @@ export const addclientdata: any = async (event) => {
             Phone: clientData.Phone,
             email: clientData.email,
             website: clientData.website,
-            information: clientData.information
+            information: clientData.information,
+            InvoiceCurrency : clientData.InvoiceCurrency,
 
         });
         console.log("hello")
@@ -32,8 +36,12 @@ export const addclientdata: any = async (event) => {
         return formatJSONResponse(200, { data: clientDatas });
     }
     catch (error) {
-        return formatJSONResponse(400, { data: "Invalid Details" });
+        return formatJSONResponse(400, { data: error.message });
     }
+}
+else{
+    return formatJSONResponse(400, { data: "Invalid details" });
+}
 
 
 

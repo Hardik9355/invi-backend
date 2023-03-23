@@ -2,7 +2,7 @@
 import { functions } from './signup/index';
 import { companyfunctions } from './companydata';
 import { clientfunctions } from './clientdata';
-
+import {authorizationfunction} from './authorization';
 import { invoicefunctions } from './invoicedata';
 export const registers = functions.register;
 export const logins = functions.loginuser;
@@ -16,4 +16,4 @@ export const getuserdatas = functions.getuserdata;
 export const updatecompanydatas = companyfunctions.updatecompanydata;
 export const invoicefunction = invoicefunctions.addinvoicedata;
 export const deleteclientdatas = clientfunctions.deleteclientdata;
-
+export const authorizationfunctions = authorizationfunction.authorize;

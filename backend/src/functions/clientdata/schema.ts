@@ -3,7 +3,7 @@ export const ClientData = {
     properties: {
 
 
-        companyname : {type : 'string'},
+        companyname: { type: 'string' },
         fname: { type: 'string' },
         lname: { type: 'string' },
         Address1: { type: 'string' },
@@ -14,13 +14,13 @@ export const ClientData = {
         Phone: { type: 'string' },
         email: { type: 'string' },
         website: { type: 'string' },
-        information : {type : 'string'},
-        InvoiceCurrency : {type : 'string'}
+        information: { type: 'string' },
+        InvoiceCurrency: { type: 'string' }
 
-        
+
 
 
     },
-    required: ['companyname',  'fname', 'lname', "Address1", "Address2", "Postalcode", "City", "Country", "email" , "information"]
+    required: ['companyname', 'fname', 'lname', "Address1", "Address2", "Postalcode", "City", "Country", "email", "information", "InvoiceCurrency"]
 };
 

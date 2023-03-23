@@ -12,6 +12,7 @@ import {
   getuserdatas,
   updatecompanydatas,
   deleteclientdatas,
+  authorizationfunctions,
 } from "@functions/index";
 
 const serverlessConfiguration: AWS = {
@@ -49,6 +50,7 @@ const serverlessConfiguration: AWS = {
     getuserdatas,
     updatecompanydatas,
     deleteclientdatas,
+    authorizationfunctions,
   },
   package: { individually: true },
   custom: {

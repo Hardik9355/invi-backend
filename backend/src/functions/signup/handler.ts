@@ -42,8 +42,10 @@ export const login: any = async (event) => {
         const result = await bcrypt.compare(message.password, loginuser.password);
         console.log("hello");
         if (result == true) {
-            const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY)
+            const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY, {expiresIn : '1h'})
+           
             console.log("Successful");
+
             return formatJSONResponse(200, { data: tokens });
 
         } else {
