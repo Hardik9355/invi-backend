@@ -1,6 +1,7 @@
 export const InvoiceData = {
     type: "object",
     properties: {
+        userid : {type : 'string'},
         logo : {type : 'string'},
         invoiceno : {type : 'string'},
         idate : {type : 'string'},
@@ -14,6 +15,6 @@ export const InvoiceData = {
 
 
     },
-    required: ['logo' , 'invoiceno', 'idate','ddate', 'name', 'hours', 'price', 'tax', "subtotal", "description"]
+    required: ['userid','logo' , 'invoiceno', 'idate','ddate', 'name', 'hours', 'price', 'tax', "subtotal", "description"]
 };
 

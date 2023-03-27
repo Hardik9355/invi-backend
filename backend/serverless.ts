@@ -13,6 +13,8 @@ import {
   updatecompanydatas,
   deleteclientdatas,
   authorizationfunctions,
+  updateclientdatas,
+  deletecompanydatas,
 } from "@functions/index";
 
 const serverlessConfiguration: AWS = {
@@ -32,6 +34,10 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       SECRETKEY: "${env:SECRETKEY}",
+      MONGO_URI: "${env:MONGO_URI}",
+      accessKeyId : "${env:accessKeyId}",
+      secretKeyId : "${env:secretKeyId}",
+      region : "${env:region}",
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
     },
@@ -51,6 +57,8 @@ const serverlessConfiguration: AWS = {
     updatecompanydatas,
     deleteclientdatas,
     authorizationfunctions,
+    updateclientdatas,
+    deletecompanydatas,
   },
   package: { individually: true },
   custom: {

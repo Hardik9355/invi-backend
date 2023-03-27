@@ -10,7 +10,7 @@ export const companyfunctions = {
         http: {
           method: 'post',
           path: 'addcompanydata',
-          cors : true,
+          cors: true,
           request: {
             schemas: {
               'application/json': CompanyData,
@@ -27,8 +27,8 @@ export const companyfunctions = {
         http: {
           method: 'get',
           path: 'getcompanydata',
-          cors : true,
-        
+          cors: true,
+
         },
       },
     ],
@@ -40,8 +40,21 @@ export const companyfunctions = {
         http: {
           method: 'put',
           path: 'updatecompanydata',
-          cors : true,
-        
+          cors: true,
+
+        },
+      },
+    ],
+  },
+  deletecompanydata: {
+    handler: `${handlerPath(__dirname)}/handler.deletecompanydata`,
+    events: [
+      {
+        http: {
+          method: 'delete',
+          path: 'deletecompanydata',
+          cors: true,
+
         },
       },
     ],

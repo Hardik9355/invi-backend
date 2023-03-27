@@ -8,7 +8,7 @@ const db = process.env.MONGO_URI;
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb+srv://Hardik1:Hardik@cluster0.xfnjtyw.mongodb.net/?retryWrites=true");
+        await mongoose.connect(db);
         console.log("MongoDB is connected");
     } catch (err) {
         console.error(err.message);

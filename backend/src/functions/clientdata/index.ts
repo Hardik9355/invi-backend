@@ -48,4 +48,17 @@ export const clientfunctions = {
       },
     ],
   },
+  updateclientdata: {
+    handler: `${handlerPath(__dirname)}/handler.updateclientdata`,
+    events: [
+      {
+        http: {
+          method: 'put',
+          path: 'updateclientdata',
+          cors : true,
+        
+        },
+      },
+    ],
+  },
 }

@@ -2,7 +2,7 @@ export const ClientData = {
     type: "object",
     properties: {
 
-
+        userid : {type : 'string'},
         companyname: { type: 'string' },
         fname: { type: 'string' },
         lname: { type: 'string' },

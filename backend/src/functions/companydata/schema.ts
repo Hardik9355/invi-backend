@@ -1,7 +1,7 @@
 export const CompanyData = {
     type: "object",
     properties: {
-
+        userid: { type: "string" },
         companyname: { type: 'string' },
         taxno: { type: 'string' },
         fname: { type: 'string' },
@@ -13,7 +13,7 @@ export const CompanyData = {
         Country: { type: 'string' },
         Phone: { type: 'string' },
         email: { type: 'string' },
-        website: { type: 'string'},
+        website: { type: 'string' },
 
 
     },

@@ -1,7 +1,6 @@
 export const Register = {
   type: "object",
   properties: {
-
     fname: { type: 'string' },
     lname: { type: 'string' },
     email: { type: 'string'},
@@ -12,4 +11,3 @@ export const Register = {
   },
   required: ['fname', 'lname', 'email', 'password']
 };
-

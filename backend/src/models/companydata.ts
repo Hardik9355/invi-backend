@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 const companydata = new mongoose.Schema({
+    userid: {
+        type: "String",
+    },
     companyname: {
         type: "String",
         required: true,
@@ -7,7 +10,7 @@ const companydata = new mongoose.Schema({
     taxno: {
         type: "String",
         required: true,
-        
+
     },
     fname: {
         type: "String",
@@ -53,6 +56,7 @@ const companydata = new mongoose.Schema({
 
 });
 export interface CompanyDoc extends mongoose.Document {
+    userid: String,
     companyname: String,
     taxno: String,
     fname: String,

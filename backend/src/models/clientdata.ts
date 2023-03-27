@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 const clientdata = new mongoose.Schema({
+    userid :{
+        type:"String",
+    },
     companyname: {
         type: "String",
         required: true,
@@ -54,6 +57,7 @@ const clientdata = new mongoose.Schema({
 
 });
 export interface ClientDoc extends mongoose.Document {
+    userid : String,
     companyname: String,
     fname: String,
     lname: String,
