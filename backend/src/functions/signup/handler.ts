@@ -13,7 +13,7 @@ export const register: any = async (event) => {
     try {
         const message = JSON.parse(event.body);
         console.log(message);
-        const saltRounds = 10;
+        const saltRounds = Number(process.env.SALTROUNDS);
         const password = message.password;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
         const createuser = new User({

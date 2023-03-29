@@ -1,5 +1,4 @@
 import { formatJSONResponse } from "src/utills/ApiGateway";
-
 import connectDB from "src/config/db";
 require("dotenv").config();
 import clientdata from "src/models/clientdata";
@@ -49,20 +48,20 @@ export const addclientdata: any = async (event) => {
 export const getclientdata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
-    try {
-        console.log("Hey");
-        await connectDB();
-        // const userclientdata = await clientdata.find(userid : result.userid);
-        const userclientdata = await clientdata.find();
-        
-        return formatJSONResponse(200, { data: userclientdata });
+        try {
+            console.log("Hey");
+            await connectDB();
+            // const userclientdata = await clientdata.find(userid : result.userid);
+            const userclientdata = await clientdata.find();
 
-    }
-    catch (err) {
-        return formatJSONResponse(400, { data: "Invalid request" });
+            return formatJSONResponse(200, { data: userclientdata });
 
+        }
+        catch (err) {
+            return formatJSONResponse(400, { data: "Invalid request" });
+
+        }
     }
-}
     else {
         return formatJSONResponse(400, { data: "Session Expired" });
     }
@@ -71,7 +70,7 @@ export const deleteclientdata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
         try {
-            await connectDB();  
+            await connectDB();
             const data = JSON.parse(event.body);
             await clientdata.findByIdAndDelete(data._id);
             return formatJSONResponse(200, { data: "delete successful" });
@@ -93,7 +92,7 @@ export const updateclientdata: any = async (event) => {
             console.log("hello");
             const data = JSON.parse(event.body);
             console.log(data);
-            let clientd= await clientdata.findById(data._id);
+            let clientd = await clientdata.findById(data._id);
             console.log(clientd);
             clientd.companyname = data.companyname || clientd.companyname;
             clientd.fname = data.fname || clientd.fname;

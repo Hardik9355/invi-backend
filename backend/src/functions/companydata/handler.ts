@@ -11,7 +11,7 @@ export const addcompanydata: any = async (event) => {
             await connectDB();
             const companydatas = JSON.parse(event.body);
             const createcompanydata = new companydata({
-                userid : result.userid,
+                userid: result.userid,
                 companyname: companydatas.companyname,
                 taxno: companydatas.taxno,
                 fname: companydatas.fname,
