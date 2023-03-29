@@ -1,7 +1,7 @@
-import connectDB from "src/config/db";
 import bcrypt from "bcryptjs";
 import * as dotenv from "dotenv";
 require("dotenv").config();
+import connectDB from "src/config/db";
 import { authorize } from "src/functions/authorization/handler";
 import token from "jsonwebtoken";
 import User from "src/models/user";
@@ -28,7 +28,7 @@ export const register: any = async (event) => {
         return formatJSONResponse(200, { data: userdata });
     } catch (error) {
         return formatJSONResponse(400, { data: "Invalid Details" });
-
+        
     }
 };
 
@@ -44,11 +44,11 @@ export const login: any = async (event) => {
         console.log("hello");
         if (result == true) {
             const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY, { expiresIn: '1h' })
-
+            
             console.log("Successful");
-
+            
             return formatJSONResponse(200, { data: tokens });
-
+            
         } else {
             return formatJSONResponse(400, { data: "Invalid Details" });
         }
