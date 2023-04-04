@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 const companydata = new mongoose.Schema({
+    image_url: {
+        type: "String"
+    },
     userid: {
         type: "String",
     },
@@ -56,6 +59,8 @@ const companydata = new mongoose.Schema({
 
 });
 export interface CompanyDoc extends mongoose.Document {
+
+    image_url: String,
     userid: String,
     companyname: String,
     taxno: String,

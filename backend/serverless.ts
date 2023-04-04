@@ -15,6 +15,8 @@ import {
   authorizationfunctions,
   updateclientdatas,
   deletecompanydatas,
+  updateinvoicedatas,
+  deleteinvoicedatas,
 } from "@functions/index";
 
 const serverlessConfiguration: AWS = {
@@ -39,6 +41,7 @@ const serverlessConfiguration: AWS = {
       secretKeyId : "${env:secretKeyId}",
       region : "${env:region}",
       SALTROUNDS : "${env:SALTROUNDS}",
+      bucketName : "${env:bucketName}",
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
     },
@@ -60,6 +63,8 @@ const serverlessConfiguration: AWS = {
     authorizationfunctions,
     updateclientdatas,
     deletecompanydatas,
+    updateinvoicedatas,
+    deleteinvoicedatas,
   },
   package: { individually: true },
   custom: {

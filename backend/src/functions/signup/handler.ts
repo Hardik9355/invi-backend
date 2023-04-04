@@ -28,7 +28,7 @@ export const register: any = async (event) => {
         return formatJSONResponse(200, { data: userdata });
     } catch (error) {
         return formatJSONResponse(400, { data: "Invalid Details" });
-        
+
     }
 };
 
@@ -43,12 +43,12 @@ export const login: any = async (event) => {
         const result = await bcrypt.compare(message.password, loginuser.password);
         console.log("hello");
         if (result == true) {
-            const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY, { expiresIn: '1h' })
-            
+            const tokens = await token.sign({ email: loginuser.email, id: loginuser._id }, process.env.SECRETKEY, { expiresIn: '12h' })
+
             console.log("Successful");
-            
+
             return formatJSONResponse(200, { data: tokens });
-            
+
         } else {
             return formatJSONResponse(400, { data: "Invalid Details" });
         }

@@ -1,6 +1,7 @@
 export const CompanyData = {
     type: "object",
     properties: {
+        image_url : {type : "string"},
         userid: { type: "string" },
         companyname: { type: 'string' },
         taxno: { type: 'string' },

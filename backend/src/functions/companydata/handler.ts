@@ -1,45 +1,65 @@
+import * as AWS from 'aws-sdk';
 import { formatJSONResponse } from "src/utills/ApiGateway";
 import connectDB from "src/config/db";
+import { APIGatewayProxyEvent } from 'aws-lambda';
+import { v4 as uuidv4 } from 'uuid';
 require("dotenv").config();
 import companydata from "src/models/companydata";
 import { authorize } from "src/functions/authorization/handler";
+const s3 = new AWS.S3();
+const bucketName = process.env.bucketName;
+const allowedExtensions = ['png', 'jpg', 'jpeg'];
 export const addcompanydata: any = async (event) => {
-    console.log("hello");
-    const result = await authorize(event);
-    if (result.result === true) {
-        try {
-            await connectDB();
-            const companydatas = JSON.parse(event.body);
-            const createcompanydata = new companydata({
-                userid: result.userid,
-                companyname: companydatas.companyname,
-                taxno: companydatas.taxno,
-                fname: companydatas.fname,
-                lname: companydatas.lname,
-                Address1: companydatas.Address1,
-                Address2: companydatas.Address2,
-                Postalcode: companydatas.Postalcode,
-                City: companydatas.City,
-                Country: companydatas.Country,
-                Phone: companydatas.Phone,
-                email: companydatas.email,
-                website: companydatas.website
-
-            });
-
-            console.log("hello")
-            const companyData = await createcompanydata.save();
-            console.log("Successful");
-            return formatJSONResponse(200, { data: companyData });
+    try {
+        const result = await authorize(event);
+        if (!result.result) {
+            return formatJSONResponse(400, { data: "Session expired" });
         }
-
-        catch (error) {
-            return formatJSONResponse(400, { data: error.message });
+        await connectDB();
+        const companydatas = JSON.parse(event.body);
+        if ('image' in companydatas) {
+            const image = companydatas['image'];
+            const image_data = image['data'];
+            const image_extension = image['extension'];
+            if (!allowedExtensions.includes(image_extension)) {
+                return formatJSONResponse(400, { data: "Invalid image file extension" });
+            }
+            const image_data_decoded = Buffer.from(image_data, 'base64');
+            const image_filename = `${uuidv4()}.${image_extension}`;
+            await s3.upload({
+                Bucket: bucketName,
+                Key: image_filename,
+                Body: image_data_decoded
+            }).promise();
+            companydatas['image_url'] = `https://${bucketName}.s3.amazonaws.com/${image_filename}`;
         }
+        const createcompanydata = new companydata({
+            userid: result.userid,
+            companyname: companydatas.companyname,
+            taxno: companydatas.taxno,
+            fname: companydatas.fname,
+            lname: companydatas.lname,
+            Address1: companydatas.Address1,
+            Address2: companydatas.Address2,
+            Postalcode: companydatas.Postalcode,
+            City: companydatas.City,
+            Country: companydatas.Country,
+            Phone: companydatas.Phone,
+            email: companydatas.email,
+            website: companydatas.website,
+            image_url: companydatas['image_url'],
+
+        });
+        console.log("hello")
+        const companyData = await createcompanydata.save();
+        console.log("Successful");
+        return formatJSONResponse(200, { data: companyData });
     }
-    else {
-        return formatJSONResponse(400, { data: "Session expired" });
+
+    catch (error) {
+        return formatJSONResponse(400, { data: error.message });
     }
+
 
 
 };
@@ -85,6 +105,7 @@ export const updatecompanydata: any = async (event) => {
             companyd.Phone = data.Phone || companyd.Phone;
             companyd.email = data.email || companyd.email;
             companyd.website = data.website || data.website;
+
             const result = await companyd.save();
             console.log(result);
             return formatJSONResponse(200, { data: "Successful" });

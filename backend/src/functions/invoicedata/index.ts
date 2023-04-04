@@ -33,4 +33,30 @@ export const invoicefunctions = {
       },
     ],
   },
+  updateinvoicedata: {
+    handler: `${handlerPath(__dirname)}/handler.updateinvoicedata`,
+    events: [
+      {
+        http: {
+          method: 'get',
+          path: 'updateinvoicedata',
+          cors : true,
+        
+        },
+      },
+    ],
+  },
+  deleteinvoicedata: {
+    handler: `${handlerPath(__dirname)}/handler.deleteinvoicedata`,
+    events: [
+      {
+        http: {
+          method: 'get',
+          path: 'deleteinvoicedata',
+          cors : true,
+        
+        },
+      },
+    ],
+  },
 };

@@ -10,12 +10,13 @@ export const addcompanies = companyfunctions.addcompanydata;
 export const addclients = clientfunctions.addclientdata;
 export const getclients = clientfunctions.getclientdata;
 export const getcompanydata = companyfunctions.getcompanydata;
-
+export const updateinvoicedatas = invoicefunctions.updateinvoicedata;
 export const getinvoicedatas = invoicefunctions.getinvoicedata;
 export const getuserdatas = functions.getuserdata;
 export const updatecompanydatas = companyfunctions.updatecompanydata;
 export const updateclientdatas = clientfunctions.updateclientdata;
 export const invoicefunction = invoicefunctions.addinvoicedata;
 export const deleteclientdatas = clientfunctions.deleteclientdata;
+export const deleteinvoicedatas = invoicefunctions.deleteinvoicedata;
 export const deletecompanydatas = companyfunctions.deletecompanydata;
 export const authorizationfunctions = authorizationfunction.authorize;
