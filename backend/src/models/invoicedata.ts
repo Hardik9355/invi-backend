@@ -26,7 +26,7 @@ const invoicedata = new mongoose.Schema({
        
     },
     price: {
-        type: "String",
+        type: "Number",
         required: true
     },
     tax: {
@@ -51,7 +51,7 @@ export interface InvoiceDoc extends mongoose.Document {
     ddate: String,
     name: String,
     hours: String,
-    price: String,
+    price: Number,
     tax: String,
     subtotal: String,
     description: String,

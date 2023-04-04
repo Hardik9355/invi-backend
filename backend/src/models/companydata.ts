@@ -32,7 +32,7 @@ const companydata = new mongoose.Schema({
         required: true
     },
     Postalcode: {
-        type: "String",
+        type: "Number",
         required: true
     },
     City: {
@@ -44,7 +44,7 @@ const companydata = new mongoose.Schema({
         required: true
     },
     Phone: {
-        type: "String",
+        type: "Number",
 
     },
     email: {
@@ -68,10 +68,10 @@ export interface CompanyDoc extends mongoose.Document {
     lname: String,
     Address1: String,
     Address2: String,
-    Postalcode: String,
+    Postalcode: Number,
     City: String,
     Country: String,
-    Phone: String,
+    Phone: Number,
     email: String,
     website: String,
 

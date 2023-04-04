@@ -9,10 +9,10 @@ export const CompanyData = {
         lname: { type: 'string' },
         Address1: { type: 'string' },
         Address2: { type: 'string' },
-        Postalcode: { type: 'string' },
+        Postalcode: { type: 'number' },
         City: { type: 'string' },
         Country: { type: 'string' },
-        Phone: { type: 'string' },
+        Phone: { type: 'number' },
         email: { type: 'string' },
         website: { type: 'string' },
 

@@ -7,7 +7,7 @@ export const InvoiceData = {
         ddate: { type: 'string' },
         name: { type: 'string' },
         hours: { type: 'string' },
-        price: { type: 'string' },
+        price: { type: 'number' },
         tax: { type: 'string' },
         subtotal: { type: 'string' },
         description: { type: 'string' },

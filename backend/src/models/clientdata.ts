@@ -25,7 +25,7 @@ const clientdata = new mongoose.Schema({
         required: true
     },
     Postalcode: {
-        type: "String",
+        type: "Number",
         required: true
     },
     City: {
@@ -37,7 +37,7 @@ const clientdata = new mongoose.Schema({
         required: true
     },
     Phone: {
-        type: "String",
+        type: "Number",
 
     },
     email: {
@@ -65,10 +65,10 @@ export interface ClientDoc extends mongoose.Document {
     lname: String,
     Address1: String,
     Address2: String,
-    Postalcode: String,
+    Postalcode: Number,
     City: String,
     Country: String,
-    Phone: String,
+    Phone: Number,
     email: String,
     website: String,
     information: String,

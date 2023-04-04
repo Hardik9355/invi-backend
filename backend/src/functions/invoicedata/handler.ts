@@ -1,5 +1,5 @@
-import { formatJSONResponse } from "src/utills/ApiGateway";
 import connectDB from "src/config/db";
+import { formatJSONResponse } from "src/utills/ApiGateway";
 require("dotenv").config();
 import invoicedata from "src/models/invoicedata";
 import * as AWS from "aws-sdk";
@@ -49,6 +49,7 @@ export const addinvoicedata: any = async (event) => {
 
 
 };
+
 export const getinvoicedata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
