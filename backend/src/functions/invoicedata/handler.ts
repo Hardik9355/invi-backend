@@ -105,6 +105,7 @@ export const updateinvoicedata: any = async (event) => {
         return formatJSONResponse(440, { data: "Session Expired" });
     }
 };
+
 export const deleteinvoicedata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {

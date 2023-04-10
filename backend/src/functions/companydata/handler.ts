@@ -6,9 +6,11 @@ import { v4 as uuidv4 } from 'uuid';
 require("dotenv").config();
 import companydata from "src/models/companydata";
 import { authorize } from "src/functions/authorization/handler";
+
 const s3 = new AWS.S3();
 const bucketName = process.env.bucketName;
 const allowedExtensions = ['png', 'jpg', 'jpeg'];
+
 export const addcompanydata: any = async (event) => {
     try {
         const result = await authorize(event);
@@ -63,6 +65,7 @@ export const addcompanydata: any = async (event) => {
 
 
 };
+
 export const getcompanydata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
@@ -83,6 +86,7 @@ export const getcompanydata: any = async (event) => {
 
     }
 };
+
 export const updatecompanydata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
@@ -121,6 +125,7 @@ export const updatecompanydata: any = async (event) => {
         return formatJSONResponse(440, { data: "Session Expired" });
     }
 };
+
 export const deletecompanydata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {

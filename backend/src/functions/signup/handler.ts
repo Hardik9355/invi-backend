@@ -27,7 +27,7 @@ export const register: any = async (event) => {
         console.log("Successful");
         return formatJSONResponse(200, { data: userdata });
     } catch (error) {
-        return formatJSONResponse(400, { data: "Invalid Details" });
+        return formatJSONResponse(400, { data: "Invalid Details" });    
 
     }
 };

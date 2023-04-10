@@ -3,6 +3,7 @@ import connectDB from "src/config/db";
 require("dotenv").config();
 import clientdata from "src/models/clientdata";
 import { authorize } from "src/functions/authorization/handler";
+
 export const addclientdata: any = async (event) => {
     console.log("hello");
 
@@ -66,6 +67,7 @@ export const getclientdata: any = async (event) => {
         return formatJSONResponse(400, { data: "Session Expired" });
     }
 };
+
 export const deleteclientdata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {
@@ -84,6 +86,7 @@ export const deleteclientdata: any = async (event) => {
 
     }
 }
+
 export const updateclientdata: any = async (event) => {
     const result = await authorize(event);
     if (result.result === true) {

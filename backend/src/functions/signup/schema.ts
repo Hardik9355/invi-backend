@@ -3,7 +3,7 @@ export const Register = {
   properties: {
     fname: { type: 'string' },
     lname: { type: 'string' },
-    email: { type: 'string'},
+    email: { type: 'string' },
     password: { type: 'string' },
 
 
